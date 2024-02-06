@@ -10,10 +10,12 @@ CONFIG += c++11
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    taskwidget.cpp
 
 HEADERS += \
-    mainwindow.h
+    mainwindow.h \
+    taskwidget.h
 
 FORMS += \
     mainwindow.ui
