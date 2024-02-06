@@ -1,21 +1,22 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef MAINWINDOW_H //Директива, предназначенная для защиты файла от многократного включения, то есть, если такой файл уже включен где-то в другом вместе, он будет пропущен и не будет выполняться повторно (Игорь что-то про потоки еще говорил, наверное что-то связанное с перегрузкой, но я плозо помню) 
+#define MAINWINDOW_H //Объявление макроса, чтобы использовать его в других файлах
 
-#include <QMainWindow>
+#include <QMainWindow> // Класс в qt, главное окно приложения, представляет из себя макет, в который можно помещать виджеты, кнопки и вообще что угодно
 
-QT_BEGIN_NAMESPACE
+QT_BEGIN_NAMESPACE // Макрос, помогающий избежать непоняток в именах с другими библиотеками и прочими движухами, нужен, чтобы лучше структурировать код и избегать коллизий
 namespace Ui { class MainWindow; }
-QT_END_NAMESPACE
+QT_END_NAMESPACE // Конец QT_BEGIN_NAMESPACE 
 
-class MainWindow : public QMainWindow
+class MainWindow : public QMainWindow // Класс, который наследуется от QMainWindow
 {
-    Q_OBJECT
+    Q_OBJECT // Так как мы используем сигнало-слотовую систему, нам нужна данная движуха. Это макрос для связывания сигналов и слотов в Qt
 
 public:
-    MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+    MainWindow(QWidget *parent = nullptr); // Конструктор. В параметрах указатель на QWidget и приравнивается к nullptr, что позволяет создавать объект (MainWindow) с/без указания родителя
+    ~MainWindow(); // Деструктор, освобождает место, которое выделялось для MainWindow
 
 private:
-    Ui::MainWindow *ui;
+    Ui::MainWindow *ui; // Указатель на UI. Для взаимодействия с элементами интерфейса. Изменение формы без перекомпиляции исходников  
 };
 #endif // MAINWINDOW_H
+// Конец директивы (я хз, можно ли писать это на одной строке с MAINWINDOW_H)
