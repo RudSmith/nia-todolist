@@ -1,14 +1,14 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-MainWindow::MainWindow(QWidget *parent)
+MainWindow::MainWindow(QWidget *parent) // че зря неймспейс создавали что-ли
     : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+    , ui(new Ui::MainWindow) //а что с синтаксисом происходит ваще, это че такое
 {
-    ui->setupUi(this);
+    ui->setupUi(this); //указатель на объект класса
 }
 
-MainWindow::~MainWindow()
+MainWindow::~MainWindow() //берем из MainWindow дестркутор и удаляем переменную ui?
 {
     delete ui;
 }
