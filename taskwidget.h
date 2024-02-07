@@ -7,6 +7,8 @@
 #include <QString>
 #include <QGridLayout>
 #include <QGroupBox>
+#include <QPushButton>
+#include <QVector>
 
 // Виджет задачи, наследуется от QGroupBox
 class TaskWidget : public QGroupBox
@@ -18,16 +20,27 @@ public:
     // Деструктор, очищает память
     ~TaskWidget(void);
 
+    // Получить вектор подзадач
+    QVector<TaskWidget*>& GetSubtasks();
+
 private:
     void InitializeElements(const QString &text);
 
     QCheckBox* _checkBox;
     QLabel* _text;
-    QGridLayout* _laytout;
+    QGridLayout* _layout;
+    QPushButton* _addSubTaskPB; // Кнопка добавления подзадачи
+    QVector<TaskWidget*> _subtasks; // Вектор подзадач
 
 private slots:
     // Слот обработки нажатия на чекбокс
     void OnCheckBoxClick();
+    // Слот добавления подзадачи
+    void OnAddSubtaskClick();
+
+signals:
+    // Сигнал появления новой подзадачи, подаётся на главное окно
+    void NewSubtask(TaskWidget*);
 
 };
 

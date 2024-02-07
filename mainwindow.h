@@ -16,8 +16,13 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    // Обработчик добавления новой подзадачи
+    void AddSubtask(TaskWidget* subtaskParent);
+
 private:
     Ui::MainWindow* ui;
+    // Основной тасквиджет, потом просто вектор будет
     TaskWidget* _tw;
 };
 #endif // MAINWINDOW_H
