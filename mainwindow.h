@@ -24,5 +24,6 @@ private:
     Ui::MainWindow* ui;
     // Основной тасквиджет, потом просто вектор будет
     TaskWidget* _tw;
+    QVector<TaskWidget*> _tasks;
 };
 #endif // MAINWINDOW_H

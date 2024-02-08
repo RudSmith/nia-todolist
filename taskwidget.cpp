@@ -47,7 +47,7 @@ void TaskWidget::InitializeElements(const QString &text)
 
     // Запихиваем layout внутрь групбокса и устанавливаем размер
     this->setLayout(_layout);
-    this->setGeometry(0, 0, 170, 60);
+    this->setGeometry(100, 100, 170, 60);
 }
 
 void TaskWidget::OnCheckBoxClick()

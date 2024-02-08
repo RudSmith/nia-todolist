@@ -6,12 +6,12 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+    ui->setupUi(this);
     // Временное решение с начальным тасквиджетом
     _tw = new TaskWidget("test");
     connect(_tw, &TaskWidget::NewSubtask, this, &MainWindow::AddSubtask);
     this->layout()->addWidget(_tw);
-
-    ui->setupUi(this);
+    _tasks.push_back(_tw);
 }
 
 MainWindow::~MainWindow()
@@ -56,5 +56,6 @@ void MainWindow::AddSubtask(TaskWidget *subtaskParent)
     this->layout()->addWidget(subtaskParent->GetSubtasks().last());
     // Делаем так, чтобы новая подзадача тоже могла подавать сигнал создания подзадачи
     connect(subtaskParent->GetSubtasks().last(), &TaskWidget::NewSubtask, this, &MainWindow::AddSubtask);
+    _tasks.push_back(subtaskParent);
 }
 
