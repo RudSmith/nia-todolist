@@ -2,6 +2,7 @@
 #define MAINWINDOW_H //Объявление макроса, чтобы использовать его в других файлах
 
 #include <QMainWindow>
+#include "taskwidget.h"
 
 QT_BEGIN_NAMESPACE // Макрос, помогающий избежать непоняток в именах с другими библиотеками и прочими движухами, нужен, чтобы лучше структурировать код и избегать коллизий
 namespace Ui { class MainWindow; }
@@ -26,4 +27,3 @@ private:
     QVector<TaskWidget*> _tasks;
 };
 #endif // MAINWINDOW_H
-// Конец директивы (я хз, можно ли писать это на одной строке с MAINWINDOW_H)
